@@ -29,6 +29,7 @@ W_DigitalRead w_digitalRead;
 W_MarkerMode w_markermode;
 W_playback w_playback;
 W_SSVEP w_ssvep;
+W_CoherencePlot w_coherencePlot;
 
 //ADD YOUR WIDGET TO WIDGETS OF WIDGETMANAGER
 void setupWidgets(PApplet _this, ArrayList<Widget> w){
@@ -94,6 +95,10 @@ void setupWidgets(PApplet _this, ArrayList<Widget> w){
     w_focus.setTitle("Focus Widget");
     addWidget(w_focus, w);
     // println("  setupWidgets focus widget -- " + millis());
+
+    w_coherencePlot = new W_CoherencePlot(_this);
+    w_coherencePlot.setTitle("Coherence Plot");
+    addWidget(w_coherencePlot, w);
 
     w_ssvep = new W_SSVEP(_this);
     w_ssvep.setTitle("SSVEP_beta");
