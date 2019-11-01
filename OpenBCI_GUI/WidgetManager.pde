@@ -13,6 +13,7 @@ int navHeight = 22;
 
 // MAKE YOUR WIDGET GLOBALLY
 W_timeSeries w_timeSeries;
+W_CoherencePlot w_coherencePlot;
 W_fft w_fft;
 W_Networking w_networking;
 W_BandPower w_bandPower;
@@ -29,7 +30,6 @@ W_DigitalRead w_digitalRead;
 W_MarkerMode w_markermode;
 W_playback w_playback;
 W_SSVEP w_ssvep;
-W_CoherencePlot w_coherencePlot;
 
 //ADD YOUR WIDGET TO WIDGETS OF WIDGETMANAGER
 void setupWidgets(PApplet _this, ArrayList<Widget> w){
@@ -40,6 +40,10 @@ void setupWidgets(PApplet _this, ArrayList<Widget> w){
     w_timeSeries.setTitle("Time Series");
     addWidget(w_timeSeries, w);
     // println("  setupWidgets time series -- " + millis());
+
+    w_coherencePlot = new W_CoherencePlot(_this);
+    w_coherencePlot.setTitle("Coherence Plot");
+    addWidget(w_coherencePlot, w);
 
     //Widget_1
     w_fft = new W_fft(_this);
@@ -96,9 +100,6 @@ void setupWidgets(PApplet _this, ArrayList<Widget> w){
     addWidget(w_focus, w);
     // println("  setupWidgets focus widget -- " + millis());
 
-    w_coherencePlot = new W_CoherencePlot(_this);
-    w_coherencePlot.setTitle("Coherence Plot");
-    addWidget(w_coherencePlot, w);
 
     w_ssvep = new W_SSVEP(_this);
     w_ssvep.setTitle("SSVEP_beta");
